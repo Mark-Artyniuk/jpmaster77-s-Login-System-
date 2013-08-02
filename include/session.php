@@ -388,7 +388,7 @@ class Session
             /* Check if password too short or is not alphanumeric */
             $subcurpass = stripslashes($subcurpass);
             if(strlen($subcurpass) < 4 ||
-               !preg_match("^([0-9a-z])+$", ($subcurpass = trim($subcurpass)))){
+               !preg_match("#^([0-9a-z])+$#", ($subcurpass = trim($subcurpass)))){
                $form->setError($field, "* Current Password incorrect");
             }
             /* Password entered is incorrect */
@@ -405,7 +405,7 @@ class Session
             $form->setError($field, "* New Password too short");
          }
          /* Check if password is not alphanumeric */
-         else if(!preg_match("^([0-9a-z])+$", ($subnewpass = trim($subnewpass)))){
+         else if(!preg_match("#^([0-9a-z])+$#", ($subnewpass = trim($subnewpass)))){
             $form->setError($field, "* New Password not alphanumeric");
          }
       }
